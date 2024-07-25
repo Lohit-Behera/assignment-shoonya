@@ -1,8 +1,31 @@
-# React + Vite
+# Wellness Retreats
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assignment Shoonya is a web application built to demonstrate a responsive web page for a fictional wellness retreat platform. This project is developed using React.
 
-Currently, two official plugins are available:
+## Installation Using Docker
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install [Docker](https://docs.docker.com/engine/install/) Then in terminal of root directory.
+
+```bash
+docker compose up
+```
+
+Then go to [localhost:3000](http://localhost:3000/)
+
+## Installation Without Using Docker
+
+First install [node](https://nodejs.org/en). I am using node V20.12.2.
+
+Then Install node module in terminal of root directory.
+
+```bash
+npm install
+```
+
+Then run server
+
+```bash
+npm run dev
+```
+
+Then go to [localhost:3000](http://localhost:3000/)
