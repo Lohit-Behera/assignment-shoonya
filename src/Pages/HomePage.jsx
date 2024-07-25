@@ -167,6 +167,7 @@ function HomePage() {
                 type="text"
                 placeholder="Search retreats by title"
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
               />
               <span onClick={handleSearch} className="cursor-pointer">
                 <svg
