@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DetailsPageLoader from "../components/Loader/DetailsPageLoader";
+import Image from "../components/Image";
 
 function DetailsPage() {
   const { id } = useParams();
@@ -25,11 +27,11 @@ function DetailsPage() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <DetailsPageLoader />
       ) : (
         <div className="space-y-4 min-h-[80vh]">
           <div className="w-full bg-[#e0d9cf] p-4 rounded-lg space-y-2">
-            <img
+            <Image
               src={data.image}
               className="w-full h-[28rem] object-cover rounded-lg"
               alt=""
@@ -48,12 +50,12 @@ function DetailsPage() {
             </p>
             <div className="flex justify-between">
               <button
-                className="bg-[#1b3252] text-white px-4 py-2 rounded-lg"
+                className="bg-[#1b3252] text-white px-4 py-2 rounded-lg hover:opacity-80 transition duration-300"
                 onClick={() => navigate(-1)}
               >
                 Back
               </button>
-              <button className="bg-[#1b3252] text-white px-4 py-2 rounded-lg">
+              <button className="bg-[#1b3252] text-white px-4 py-2 rounded-lg hover:opacity-80 transition duration-300">
                 Book Now
               </button>
             </div>

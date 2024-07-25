@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Image from "./Image";
 
 function Yoga({ data }) {
   const timestamp = data.date;
@@ -7,7 +8,11 @@ function Yoga({ data }) {
   return (
     <div className="bg-[#e0d9cf] p-4 rounded-lg space-y-1">
       <Link to={`details/${data.id}`}>
-        <img src={data.image} className="w-full h-52 object-cover rounded-lg" />
+        <Image
+          src={data.image}
+          alt={data.title}
+          className="w-full h-52 object-cover rounded-lg"
+        />
       </Link>
       <Link to={`details/${data.id}`}>
         <h2 className="text-lg md:text-xl font-semibold hover:underline">

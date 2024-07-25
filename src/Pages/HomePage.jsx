@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Yoga from "../components/Yoga";
+import HomePageLoader from "../components/Loader/HomePageLoader";
+import Image from "../components/Image";
 
 function HomePage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState("");
   const [tag, setTag] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
 
   const types = data ? data.map((item) => item.type) : [];
@@ -19,7 +22,8 @@ function HomePage() {
     .filter(
       (item) =>
         (!type || type === "all" || item.type === type) &&
-        (!tag || tag === "all" || item.tag.includes(tag))
+        (!tag || tag === "all" || item.tag.includes(tag)) &&
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .slice((page - 1) * 6, page * 6);
 
@@ -53,14 +57,14 @@ function HomePage() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <HomePageLoader />
       ) : (
         <div className="space-y-4">
           <div className="w-full bg-[#e0d9cf] p-4 rounded-lg space-y-3">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyMDUzMDJ8MHwxfHNlYXJjaHwyfHxZb2dhJTIwfGVufDF8fHx8MTcyMTc1MzMzNXww&ixlib=rb-4.0.3&q=80&w=1080"
               className="w-full h-60 object-cover rounded-lg"
-              alt=""
+              alt="Yoga"
             />
             <h2 className="text-lg md:text-xl font-semibold">
               Discover Your Inner Peace
@@ -103,8 +107,9 @@ function HomePage() {
             </div>
             <input
               type="text"
-              placeholder="Search"
-              className="bg-[#1b3252] text-white text-sm md:text-base p-2 rounded-lg"
+              placeholder="Search retreats by title"
+              className="bg-[#1b3252] text-white text-sm md:text-base w-full md:w-[50%] p-2 rounded-lg"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           {filterData.length === 0 && (
@@ -119,14 +124,14 @@ function HomePage() {
           </div>
           <div className="flex justify-center space-x-2">
             <button
-              className="bg-[#1b3252] text-white text-sm md:text-base p-2 px-4 rounded-lg disabled:cursor-not-allowed disabled:opacity-50"
+              className="bg-[#1b3252] text-white text-sm md:text-base p-2 px-4 rounded-lg hover:opacity-80 transition duration-300 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={handlePrev}
               disabled={page === 1}
             >
               Previous
             </button>
             <button
-              className="bg-[#1b3252] text-white text-sm md:text-base p-2 px-4 rounded-lg disabled:cursor-not-allowed disabled:opacity-50"
+              className="bg-[#1b3252] text-white text-sm md:text-base p-2 px-4 rounded-lg hover:opacity-80 transition duration-300 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={handleNext}
               disabled={filterData.length < 6}
             >
