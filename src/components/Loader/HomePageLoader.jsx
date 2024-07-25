@@ -5,7 +5,7 @@ function HomePageLoader() {
     <div className="space-y-4">
       <div className="w-full h-80 bg-neutral-400/50 animate-pulse rounded-lg"></div>
       <div className="flex flex-col md:flex-row space-x-0 md:space-x-3 space-y-2 md:space-y-0 justify-between">
-        <div className="flex flex-col w-ful lmd:w-[50%] md:flex-row space-x-0 md:space-x-3 space-y-2 md:space-y-0 ">
+        <div className="flex flex-col w-ful md:w-[50%] md:flex-row space-x-0 md:space-x-3 space-y-2 md:space-y-0 ">
           <div className="w-full md:w-[30%] h-9 bg-neutral-400/50 animate-pulse rounded-lg"></div>
           <div className="w-full md:w-[30%] h-9 bg-neutral-400/50 animate-pulse rounded-lg"></div>
           <div className="w-full md:w-[10%] h-9 bg-neutral-400/50 animate-pulse rounded-lg"></div>
